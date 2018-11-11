@@ -17,13 +17,30 @@
       background:#cc141d;
     }
 
+    a:hover {
+      cursor: pointer;
+    }
+
     .white{
       color:#f4f4f4;
     }
 
-    .players{
-      display: flex;
+    @media only screen and (min-width: 780px){
+      .players{
+        display: flex;
+      }
     }
+
+    @media only screen and (max-width:1000px){
+      .main-heading{
+        font-size: 2em;
+      }
+      .icons {
+        display: none;
+      }
+    }
+
+
 
     .players .left-player, .players .right-player {
       flex: 2;
@@ -31,10 +48,12 @@
 
     .options{
       display: flex;
+      flex-wrap: wrap;
     }
 
     .option1, .option2, .option3, .option4, .option5 {
       flex:1;
+      margin-bottom: 4px;
     }
 
   </style>
@@ -55,7 +74,7 @@
             <a class="nav-link " href="#" style="color: #f4f4f4; font-size:1.5rem; font-family:'Oswald', sans-serif;">Blog</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link white" href="{% url 'howtoplay' %}" style="color: #f4f4f4; font-size:1.5rem; font-family:'Oswald', sans-serif;">How To Play</a>
+            <a class="nav-link white" href="{% url 'howtoplay' %}" style="color: #f4f4f4; font-size:1.5rem; font-family:'Oswald', sans-serif;">How It Works</a>
           </li>
           <li class="nav-item">
             <a class="nav-link white" href="https://github.com/AniketShahane" target="_blank" style="color: #f4f4f4;"><i class="fab fa-github-square fa-2x"></i></a>
