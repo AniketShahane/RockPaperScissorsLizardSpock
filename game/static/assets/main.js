@@ -7,6 +7,8 @@ var yourpoints = 0,
 you = document.getElementById('yourpoints');
 sheldon = document.getElementById('shellypoints');
 
+decider = document.getElementById('decider');
+
 you.innerHTML = '0';
 sheldon.innerHTML = '0';
 
@@ -17,11 +19,11 @@ var choice; // This variable stores the choice that the user has made
 // choice === 4: Lizard
 // choice === 5: Spock
 var SheldonChooses = {
-  1: '<i class="far fa-hand-rock fa-3x p-3" style="color:#ffc107; border: 2px solid white; border-radius:50%"></i>',
-  2: '<i class="far fa-hand-paper fa-3x p-3" style="color:#ffc107; border: 2px solid white; border-radius:50%"></i>',
-  3: '<i class="far fa-hand-scissors fa-3x p-3" style="color:#ffc107; border: 2px solid white; border-radius:50%"></i>',
-  4: '<i class="far fa-hand-lizard fa-3x p-3" style="color:#ffc107; border: 2px solid white; border-radius:50%"></i>',
-  5: '<i class="far fa-hand-spock fa-3x p-3" style="color:#ffc107; border: 2px solid white; border-radius:50%"></i>'
+  1: '<i class="far fa-hand-rock fa-3x p-3 a"  style="color:#ffc107; border: 2px solid white; border-radius:50%"></i>',
+  2: '<i class="far fa-hand-paper fa-3x p-3 a" style="color:#ffc107; border: 2px solid white; border-radius:50%"></i>',
+  3: '<i class="far fa-hand-scissors fa-3x p-3 a" style="color:#ffc107; border: 2px solid white; border-radius:50%"></i>',
+  4: '<i class="far fa-hand-lizard fa-3x p-3 a" style="color:#ffc107; border: 2px solid white; border-radius:50%"></i>',
+  5: '<i class="far fa-hand-spock fa-3x p-3 a" style="color:#ffc107; border: 2px solid white; border-radius:50%"></i>'
 };
 
 var winner = [
@@ -56,18 +58,20 @@ for (var option of options) {
 
     if (winner[choice - 1][shelly - 1] === 1) {
       yourpoints += 1;
-      // howard_photo.innerHTML = '<img src="{% static \'howard_sq.jpg\' %}" class="p-2" width="200" height="200" style="border-radius:50%; border: 2px solid #eee;">';
+      $('#decider').fadeIn(100);
+      decider.innerHTML = '<h3 style="color:white; font-family: \'Roboto Condensed\', sans-serif; text-align: center; block: block">You Win!!</h3>';
       you.innerHTML = `${yourpoints}`;
-      document.getElementById('title').innerHTML = 'You Win !!';
-      document.getElementById('decision').click();
+      $('#decider').fadeOut(1000);
     } else if (winner[choice - 1][shelly - 1] === -1) {
-      document.getElementById('title').innerHTML = 'It\'s a Tie !!';
-      document.getElementById('decision').click();
+      $('#decider').fadeIn(100);
+      decider.innerHTML = '<h3 style = "color:white; font-family: \'Roboto Condensed\', sans-serif; text-align: center; block: block" >Sorry Guys Its A Tie!! </h3>';
+      $('#decider').fadeOut(1000);
     } else {
       shellypoints += 1;
+      $('#decider').fadeIn(100);
+      decider.innerHTML = '<h3 style = "color:white; font-family: \'Roboto Condensed\', sans-serif; text-align: center; block: block" > Sheldon Wins!! </h3>';
       sheldon.innerHTML = `${shellypoints}`;
-      document.getElementById('title').innerHTML = 'Sheldon Wins !!';
-      document.getElementById('decision').click();
+      $('#decider').fadeOut(1000);
     }
   });
 }
