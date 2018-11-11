@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block title %}Game{% endblock %}
+{% block content %}
+<div class="jumbotron jumbotron-fluid text-center py-2">
+  <div class="container">
+    <span><i class="fas fa-trophy fa-2x mr-2" style="color:black;"></i></span>
+    <h1 class="display-4" style="font-family:'Kaushan Script'; color:#1e1e1e;display:inline-block;">Rock Paper Scissors Lizard Spock </h1>
+    <span><i class="fas fa-trophy fa-2x ml-3" style="color:black;"></i></span>
+    <p class="lead" style="font-family:'Oswald', sans-serif; color:#1e1e1e;">~~ A great game that we came across while binging 'The Big Bang Theory'. Thanks Sheldon Lee Cooper!! ~~</p>
+  </div>
+</div>
+
+<div class="container py-3" style="border: 2px solid #ffc107">
+  <div class="container players">
+
+    <div class="left-player text-center p-2">
+      <img src="{% static 'howard_sq.jpg' %}" class="p-2" width="200" height="200" style="border-radius:50%; border: 2px solid #eee;">
+      <h4 class="my-1" style="color: white;font-family: 'Roboto Condensed', sans-serif"><strong>You</strong></h4>
+      <div class="options my-4">
+
+        <a href="#" class="option1">
+          <i class="far fa-hand-rock fa-3x p-3" style="color:#ffc107; border: 2px solid white; border-radius:50%"></i>
+        </a>
+
+
+        <a href="#" class="option2">
+          <i class="far fa-hand-paper fa-3x p-3" style="color:#ffc107; border: 2px solid white; border-radius:50%"></i>
+        </a>
+
+
+        <a href="#" class="option3">
+          <i class="far fa-hand-scissors fa-3x p-3" style="color:#ffc107; border: 2px solid white; border-radius:50%"></i>
+        </a>
+
+
+        <a href="#" class="option4">
+          <i class="far fa-hand-lizard fa-3x p-3" style="color:#ffc107; border: 2px solid white; border-radius:50%"></i>
+        </a>
+
+
+        <a href="#" class="option5">
+          <i class="far fa-hand-spock fa-3x p-3" style="color:#ffc107; border: 2px solid white; border-radius:50%"></i>
+        </a>
+
+      </div>
+    </div>
+
+    <div class="right-player text-center p-2">
+      <img src="{% static 'sheldon.jpg' %}" class="p-2" width="200" height="200" style="border-radius:50%; border: 2px solid #eee;">
+      <h4 class="my-1" style="color: white;font-family: 'Roboto Condensed', sans-serif"><strong>Sheldon</strong></h4>
+      <h3 class="my-5" style="color: white;font-family: 'Roboto Condensed', sans-serif; display: inline-block">Sheldon Played: </h3>
+      <div id="shelly" class="ml-4" style="display: inline-block"></div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

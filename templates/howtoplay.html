@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}How To Play{% endblock %}
+{% block content %}
+<div class="container text-center my-4">
+  <h2 style="color: white;font-family: 'Roboto Condensed', sans-serif;">Let's Ask Sheldon !! <span class="mx-4">OR</span>Get Dice Game <a href="{% static 'rpsls.pdf' %}" style="color: white" target="_blank"><i class="ml-2 fas fa-file-download fa-1x"></i></a></h2>
+</div>
+<div class="container my-2 text-center" id="howtoplay">
+  <div>
+    <video src="{% static 'rpsls.mp4' %}" controls width="750" height="500" frameborder="0" allowfullscreen style="border: 2px solid white;" class="p-2" poster="{% static 'rpsls.jpg' %}"></video>
+  </div>
+</div>
+{% endblock %}
