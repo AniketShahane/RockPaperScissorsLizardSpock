@@ -3,8 +3,8 @@
 {% load static %}
 {% block title %}Game{% endblock %}
 {% block content %}
-<div class="jumbotron jumbotron-fluid text-center py-2">
-  <div class="container">
+<div class="jumbotron jumbotron-fluid text-center pt-2 pb-1 bg-light">
+  <div class="container" id="main-jumbo">
     <span><i class="fas fa-trophy fa-2x mr-2 icons" style="color:black;"></i></span>
     <h1 class="display-4 main-heading" style="font-family:'Kaushan Script'; color:#1e1e1e;display:inline-block;">Rock Paper Scissors Lizard Spock </h1>
     <span><i class="fas fa-trophy fa-2x ml-3 icons" style="color:black;"></i></span>
@@ -12,36 +12,50 @@
   </div>
 </div>
 
-<div class="container py-3" style="border: 2px solid #ffc107">
-  <div id="decider"></div>
+<div class="container pt-2" style="border: 2px solid #ffc107">
   <div class="container players">
     <div class="left-player text-center p-2">
       <span id="howard_photo"><img src="{% static 'howard_sq.jpg' %}" class="p-2" width="200" height="200" style="border-radius:50%; border: 2px solid #eee;"></span>
       <h4 class="my-1" style="color: white;font-family: 'Roboto Condensed', sans-serif"><strong>You</strong> <span id="yourpoints"></span></h4>
-      <div class="options my-4">
+      <div class="options my-4 ml-5">
 
-        <a class="option1">
-          <i class="far fa-hand-rock fa-3x p-3" style="color:#ffc107; border: 2px solid white; border-radius:50%"></i>
+        <a class="option1 mb-2">
+          <span id="one" class="opt1">
+            <i class="far fa-hand-rock fa-3x p-3 mr-2" style="color:#ffc107; border: 2px solid white; border-radius:50%"></i>
+            <small class="hidden" style="color: white; font-family: 'Oswald', sans-serif; font-size: 1rem;">Rock</small>
+          </span>
         </a>
 
 
-        <a class="option2">
-          <i class="far fa-hand-paper fa-3x p-3" style="color:#ffc107; border: 2px solid white; border-radius:50%"></i>
+        <a class="option2 mb-2">
+          <span id="two" class="opt2">
+            <i class="far fa-hand-paper fa-3x p-3 mr-2" style="color:#ffc107; border: 2px solid white; border-radius:50%"></i>
+            <small class="hidden" style="color: white; font-family: 'Oswald', sans-serif; font-size: 1rem; ">Paper</small>
+          </span>
         </a>
 
 
-        <a class="option3">
-          <i class="far fa-hand-scissors fa-3x p-3" style="color:#ffc107; border: 2px solid white; border-radius:50%"></i>
+        <a class="option3 mb-2">
+          <span id="three" class="opt3">
+            <i class="far fa-hand-scissors fa-3x p-3 mr-2" style="color:#ffc107; border: 2px solid white; border-radius:50%"></i>
+            <small class="hidden" style="color: white; font-family: 'Oswald', sans-serif; font-size: 1rem; ">Scissors</small>
+          </span>
         </a>
 
 
-        <a class="option4">
-          <i class="far fa-hand-lizard fa-3x p-3" style="color:#ffc107; border: 2px solid white; border-radius:50%"></i>
+        <a class="option4 mb-2">
+          <span id="four" class="opt4">
+            <i class="far fa-hand-lizard fa-3x p-3 mr-2" style="color:#ffc107; border: 2px solid white; border-radius:50%"></i>
+            <small class="hidden" style="color: white; font-family: 'Oswald', sans-serif; font-size: 1rem; ">Lizard</small>
+          </span>
         </a>
 
 
-        <a class="option5">
-          <i class="far fa-hand-spock fa-3x p-3" style="color:#ffc107; border: 2px solid white; border-radius:50%"></i>
+        <a class="option5 mb-2">
+          <span id="five" class="opt5">
+            <i class="far fa-hand-spock fa-3x p-3" style="color:#ffc107; border: 2px solid white; border-radius:50%"></i>
+            <small class="hidden" style="color: white; font-family: 'Oswald', sans-serif; font-size: 1rem;">Spock</small>
+          </span>
         </a>
 
       </div>
@@ -55,6 +69,7 @@
     </div>
   </div>
 
+  <div id="decider"></div>
 
 </div>
 

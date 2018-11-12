@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% load static %}
+{% block title %}Blogs{% endblock %}
+{% block content %}
+
+
+<div class="container text-center mt-2 img-container">
+  <img src="{% static 'pennyposter.jpg' %}" class="p-2 mx-auto" width="120" height="120" style="border-radius:50%; border: 2px solid #eee;">
+  <img src="{% static 'bernadetteposter.jpg' %}" class="p-2 mx-auto" width="120" height="120" style="border-radius:50%; border: 2px solid #eee;">
+  <img src="{% static 'amyposter.jpg' %}" class="p-2 mx-auto" width="120" height="120" style="border-radius:50%; border: 2px solid #eee;">
+
+  <img src="{% static 'sheldonposter.jpg' %}" class="p-2 mx-auto" width="150" height="150" style="border-radius:50%; border: 2px solid #eee;">
+
+  <img src="{% static 'leonardposter.jpg' %}" class="p-2 mx-auto" width="120" height="120" style="border-radius:50%; border: 2px solid #eee;">
+  <img src="{% static 'howardposter.jpg' %}" class="p-2 mx-auto" width="120" height="120" style="border-radius:50%; border: 2px solid #eee;">
+  <img src="{% static 'rajposter.jpg' %}" class="p-2 mx-auto" width="120" height="120" style="border-radius:50%; border: 2px solid #eee;">
+
+</div>
+
+<div class="container text-center">
+  <a href="{% url 'search' %}" class="my-2 mx-auto searchbutton" style="color: white; font-size: 1.5rem; font-family: 'Roboto Condensed', sans-serif; border: 2px solid white; padding:0.4rem; display: inline-block">
+    <i class="fas fa-search"></i> Search Blogs
+  </a>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      {% include 'partials/_alerts.html' %}
+    </div>
+  </div>
+</div>
+
+
+
+{% for blog in blogs %}
+<div class="container mb-1">
+  <div class="list-group">
+    <a href="{% url 'ind_blog' blog.id %}" class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h3 class="mb-1 smalltitle" style="color: #cc141d; font-size: 1.3rem;">{{blog.title}}</h3>
+        <small class="notsmall">{{blog.pub_date | timesince}}</small>
+      </div>
+      <p class="mb-0">{{blog.smaller}}</p>
+      <small style="float:right;" class="notsmall mb-0">By {{blog.creator_name}} ({{blog.creator_email}})</small>
+    </a>
+  </div>
+</div>
+{% endfor %}
+</div>
+
+
+
+{% endblock %}

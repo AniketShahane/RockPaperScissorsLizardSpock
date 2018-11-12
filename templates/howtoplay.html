@@ -4,20 +4,19 @@
 
 {% block title %}How It Works{% endblock %}
 {% block content %}
-<div class="container text-center mt-2">
+
+<div class="container text-center mt-4 mb-2">
   <div class="row">
     <div class="col-md-12">
-      <h4 style="color: white;font-family: 'Roboto Condensed', sans-serif;">Let's Ask Sheldon !!</h4>
+      <h4 style="color: white;font-family: 'Kaushan Script', sans-serif; font-size: 2rem; ">Let's Ask Sheldon !!</h4>
     </div>
   </div>
 </div>
-<div class="container text-center" id="howtoplay">
-  <div>
-    <video src="{% static 'rpsls.mp4' %}" controls width="750" height="500" frameborder="0" allowfullscreen style="border: 2px solid white;" class="p-2" poster="{% static 'rpsls.jpg' %}"></video>
-    <div class="col-md-12 mt-2">
-      <h4 style="color: white;font-family: 'Roboto Condensed', sans-serif;">Get Dice Game
-        <a href="{% static 'rpsls.pdf' %}" style="color: white" target="_blank"><i class="ml-2 fas fa-file-download fa-1x"></i></a></h4>
-    </div>
+<div class="container text-center" id="howtoplay" style="max-height: 504; max-width: 754;">
+  <video src="{% static 'rpsls.mp4' %}" controls frameborder="0" allowfullscreen style="border: 2px solid white; height: auto; max-width: 100%" class="p-2" poster="{% static 'rpsls.jpg' %}"></video>
+  <div class="col-md-12 mt-2">
+    <h4 style="color: white;font-family: 'Roboto Condensed', sans-serif; text-decoration: underline; text-height: 0.8rem; ">Get Dice Game
+      <a href="{% static 'rpsls.pdf' %}" style="color: white" target="_blank"><i class="ml-2 fas fa-file-download fa-1x"></i></a></h4>
   </div>
 </div>
 {% endblock %}
