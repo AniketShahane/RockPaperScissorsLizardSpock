@@ -89,23 +89,23 @@ var choice; // This variable stores the choice that the user has made
 // choice === 5: Spock
 var SheldonChooses = {
   1: `<span class="shell" style="display: flex; flex-direction:column;">
-      <i class="far fa-hand-rock fa-3x p-3" style="color:#ffc107; border: 2px solid white; border-radius:50%;"></i>
+      <i class="far fa-hand-rock fa-2x p-3" style="color:#ffc107; border: 2px solid white; border-radius:50%;"></i>
       <small style="color: white; font-family: 'Oswald', sans-serif; font-size: 1rem;">Rock</small>
     </span>`,
   2: `<span class="shell" style="display: flex; flex-direction:column;">
-      <i class="far fa-hand-paper fa-3x p-3" style="color:#ffc107; border: 2px solid white; border-radius:50%;"></i>
+      <i class="far fa-hand-paper fa-2x p-3" style="color:#ffc107; border: 2px solid white; border-radius:50%;"></i>
       <small style="color: white; font-family: 'Oswald', sans-serif; font-size: 1rem;">Paper</small>
     </span>`,
   3: `<span class="shell" style="display: flex; flex-direction:column;">
-      <i class="far fa-hand-scissors fa-3x p-3" style="color:#ffc107; border: 2px solid white; border-radius:50%;"></i>
+      <i class="far fa-hand-scissors fa-2x p-3" style="color:#ffc107; border: 2px solid white; border-radius:50%;"></i>
       <small style="color: white; font-family: 'Oswald', sans-serif; font-size: 1rem;">Scissors</small>
     </span>`,
   4: `<span class="shell" style="display: flex; flex-direction:column;">
-      <i class="far fa-hand-lizard fa-3x p-3" style="color:#ffc107; border: 2px solid white; border-radius:50%;"></i>
+      <i class="far fa-hand-lizard fa-2x p-3" style="color:#ffc107; border: 2px solid white; border-radius:50%;"></i>
       <small style="color: white; font-family: 'Oswald', sans-serif; font-size: 1rem;">Lizard</small>
     </span>`,
   5: `<span class="shell" style="display: flex; flex-direction:column;">
-      <i class="far fa-hand-spock fa-3x p-3" style="color:#ffc107; border: 2px solid white; border-radius:50%;"></i>
+      <i class="far fa-hand-spock fa-2x p-3" style="color:#ffc107; border: 2px solid white; border-radius:50%;"></i>
       <small style="color: white; font-family: 'Oswald', sans-serif; font-size: 1rem;">Spock</small>
     </span>`
 };
