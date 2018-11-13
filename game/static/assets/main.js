@@ -13,7 +13,6 @@ decider = document.getElementById('decider');
 you.innerHTML = '0';
 sheldon.innerHTML = '0';
 
-console.log(screen.width);
 
 if (screen.width >= 1185) {
   ScrollReveal().reveal('#main-nav', {
@@ -89,23 +88,23 @@ var choice; // This variable stores the choice that the user has made
 // choice === 4: Lizard
 // choice === 5: Spock
 var SheldonChooses = {
-  1: `<span style="display: flex; flex-direction:column;">
-      <i class="far fa-hand-rock fa-3x p-3" style="color:#ffc107; border: 2px solid white; border-radius:50%;"></i>
+  1: `<span class="shell" style="display: flex; flex-direction:column;">
+      <i class="far fa-hand-rock fa-3x p-3" style="color:#ffc107; border: 2px solid white; border-radius:50%; max-width:80%; max-height: 80%"></i>
       <small style="color: white; font-family: 'Oswald', sans-serif; font-size: 1rem;">Rock</small>
     </span>`,
-  2: `<span style="display: flex; flex-direction:column;">
+  2: `<span class="shell" style="display: flex; flex-direction:column;">
       <i class="far fa-hand-paper fa-3x p-3" style="color:#ffc107; border: 2px solid white; border-radius:50%;"></i>
       <small style="color: white; font-family: 'Oswald', sans-serif; font-size: 1rem;">Paper</small>
     </span>`,
-  3: `<span style="display: flex; flex-direction:column;">
+  3: `<span class="shell" style="display: flex; flex-direction:column;">
       <i class="far fa-hand-scissors fa-3x p-3" style="color:#ffc107; border: 2px solid white; border-radius:50%;"></i>
       <small style="color: white; font-family: 'Oswald', sans-serif; font-size: 1rem;">Scissors</small>
     </span>`,
-  4: `<span style="display: flex; flex-direction:column;">
+  4: `<span class="shell" style="display: flex; flex-direction:column;">
       <i class="far fa-hand-lizard fa-3x p-3" style="color:#ffc107; border: 2px solid white; border-radius:50%;"></i>
       <small style="color: white; font-family: 'Oswald', sans-serif; font-size: 1rem;">Lizard</small>
     </span>`,
-  5: `<span style="display: flex; flex-direction:column;">
+  5: `<span class="shell" style="display: flex; flex-direction:column;">
       <i class="far fa-hand-spock fa-3x p-3" style="color:#ffc107; border: 2px solid white; border-radius:50%;"></i>
       <small style="color: white; font-family: 'Oswald', sans-serif; font-size: 1rem;">Spock</small>
     </span>`
@@ -119,48 +118,87 @@ var winner = [
   [1, 0, 1, 0, -1]
 ];
 
+var tieString = 'No Winners Here!!';
+var rockScissors = 'Rock Crushes Scissors';
+var rockLizard = 'Rock Crushes Lizard';
+var scissorsPaper = 'Scissors Cut Paper';
+var scissorsLizard = 'Scissors Decapitates Lizard';
+var paperRock = 'Paper Covers Rock';
+var paperSpock = 'Paper Disproves Spock';
+var lizardSpock = 'Lizard Poisons Spock';
+var lizardPaper = 'Lizard Eats Paper';
+var spockRock = 'Spock Vaporises Rock';
+var spockScissors = 'Spock Smashes Scissors';
+
+
+var winnerText = [
+  [tieString, paperRock, rockScissors, rockLizard, spockRock],
+  [paperRock, tieString, scissorsPaper, lizardPaper, paperSpock],
+  [rockScissors, scissorsPaper, tieString, scissorsLizard, spockScissors],
+  [rockLizard, lizardPaper, scissorsLizard, tieString, lizardSpock],
+  [spockRock, paperSpock, spockScissors, lizardSpock, tieString]
+];
+
+
+
 for (var option of options) {
   //the option is the hand that the user has chosen to play
   option.addEventListener('click', function clicked(e) {
-    console.log('Something was clicked');
     if (e.target.parentNode.className == "opt1") {
-      console.log('Rock was clicked');
+      // console.log('Rock was clicked');
       choice = 1;
     } else if (e.target.parentNode.className == "opt2") {
-      console.log('Paper was clicked');
+      // console.log('Paper was clicked');
       choice = 2;
     } else if (e.target.parentNode.className == "opt3") {
-      console.log('Scissors was clicked');
+      // console.log('Scissors was clicked');
       choice = 3;
     } else if (e.target.parentNode.className == "opt4") {
-      console.log('Lizard was clicked');
+      // console.log('Lizard was clicked');
       choice = 4;
     } else if (e.target.parentNode.className == "opt5") {
-      console.log('Spock was clicked');
+      // console.log('Spock was clicked');
       choice = 5;
     }
     var shelly = Math.floor(Math.random() * 5) + 1;
     document.querySelector('#shelly').innerHTML = SheldonChooses[shelly];
 
+    console.log("Working till this point");
     if (winner[choice - 1][shelly - 1] === 1) {
       yourpoints += 1;
-      $('#decider').fadeIn(100);
-      decider.innerHTML = '<h3 style="color:white; font-family: \'Roboto Condensed\', sans-serif; text-align: center; block: block;"><em>You Win!!</em></h3>';
+      // $('#decider').fadeIn(100);
+      decider.innerHTML = '<em>You Win!!</em>';
+      document.getElementById('decider-text').innerHTML = winnerText[choice - 1][shelly - 1];
+      document.getElementById('decideWinner').click();
       you.innerHTML = `${yourpoints}`;
-      $('#decider').fadeOut(1000);
-      sync();
+      setTimeout(function() {
+        $('#deciderModal').fadeOut('slow');
+        $('#deciderModal').modal('hide');
+      }, 1350);
+      // $('#deciderModal').fadeOut(1200);
+      // sync();
     } else if (winner[choice - 1][shelly - 1] === -1) {
-      $('#decider').fadeIn(100);
-      decider.innerHTML = '<h3 style = "color:white; font-family: \'Roboto Condensed\', sans-serif; text-align: center; block: block" ><em>Sorry Guys Its A Tie!!</em> </h3>';
-      $('#decider').fadeOut(1000);
-      sync();
+      // $('#decider').fadeIn(100);
+      decider.innerHTML = '<em>Sorry Guys Its a Tie!!</em>';
+      document.getElementById('decider-text').innerHTML = winnerText[choice - 1][shelly - 1];
+      document.querySelector('#decideWinner').click();
+      setTimeout(function() {
+        $('#deciderModal').fadeOut('slow');
+        $('#deciderModal').modal('hide');
+      }, 1350);
+      // sync();
     } else {
       shellypoints += 1;
-      $('#decider').fadeIn(100);
-      decider.innerHTML = '<h3 style = "color:white; font-family: \'Roboto Condensed\', sans-serif; text-align: center; block: block" ><em> Sheldon Wins!! </em></h3>';
+      // $('#decider').fadeIn(100);
+      decider.innerHTML = '<em>Sheldon Wins!!</em>';
+      document.getElementById('decider-text').innerHTML = winnerText[choice - 1][shelly - 1];
+      document.querySelector('#decideWinner').click();
       sheldon.innerHTML = `${shellypoints}`;
-      $('#decider').fadeOut(1000);
-      sync();
+      setTimeout(function() {
+        $('#deciderModal').fadeOut('slow');
+        $('#deciderModal').modal('hide');
+      }, 1350);
+      // sync();
     }
 
   });

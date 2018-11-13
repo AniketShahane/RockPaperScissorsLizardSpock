@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>TBBT | {% block title %}{% endblock %}</title>
+  <link rel="shortcut icon" href="{% static 'tbbtlogo.png' %}" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Oswald|Spicy+Rice" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Roboto+Condensed" rel="stylesheet">
@@ -45,14 +46,29 @@
         display: none;
       }
       .main-heading{
-        font-size: 2em;
+        font-size: 2.5em;
       }
       .icons {
         display: none;
       }
+      .opt1, .opt2, .opt3, .opt4, .opt5 {
+        font-size: 0.8rem;
+      }
     }
 
     @media only screen and (max-width: 768px){
+
+      .players{
+        justify-content: center;
+      }
+
+      .left-player{
+        margin-bottom: 0;
+      }
+      .blog_title {
+        font-size: 2rem;
+      }
+
       .notsmall{
         display: none;
       }
@@ -60,19 +76,29 @@
         font-size: 1.2rem;
       }
       .smaller{
-        font-size: 0.6rem;
+        font-size: 0.4rem;
       }
       .options{
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
+        margin:0;
       }
       .opt1, .opt2, .opt3, .opt4, .opt5 {
         font-size: 0.6rem;
       }
+      /* .opt1, .opt2, .opt3 {
+        flex: 1;
+      }
+      .opt4, .opt5 {
+        flex: 3;
+      } */
       #howard_photo img{
         width: 5rem;
         height: 5rem;
         margin-bottom: 1px;
+        margin-left: auto;
+        margin-right: auto;
       }
       #sheldon_photo img{
         width: 5rem;
@@ -91,6 +117,7 @@
   .options{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
   }
 
   /* .option1, .option2, .option3, .option4, .option5 {
@@ -168,7 +195,7 @@
         <ul class="navbar-nav ml-auto white">
           {% if 'blogs' in request.path %}
           <li class="nav-item active white">
-            <a class="nav-link " href="javascript:{document.getElementById('blogform').click()}" onclick="sync()" style="color: #f4f4f4; font-size:1.5rem; font-family:'Oswald', sans-serif;"><i class="fas fa-plus-circle fa-1x"></i></a>
+            <a class="nav-link " href="javascript:{document.getElementById('blogform').click()}" onclick="sync()" style="color: #f4f4f4; font-size:1.5rem; font-family:'Oswald', sans-serif;">Add Your Own <i class="fas fa-plus-circle fa-1x"></i></a>
           </li>
           {% else %}
           <li class="nav-item active white">
@@ -242,6 +269,28 @@
       </div>
     </div>
   </div>
+
+  <!-- Button trigger modal -->
+  <button style="display: none;" data-toggle="modal" id="decideWinner" data-target="#deciderModal"></button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="deciderModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="max-width: auto">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <!-- <div class="modal-header">
+          <h5 class="modal-title" style="color:#cc141d; font-family: 'Roboto Condensed', sans-serif; text-align: center; block: block;" id="decider"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div> -->
+        <div class="modal-body">
+          <h5 class="modal-title" style="color:#cc141d; font-family: 'Roboto Condensed', sans-serif; text-align: center; block: block;" id="decider"></h5>
+          <h2 class="modal-title" id="decider-text" style="color:#cc141d; font-family:'Roboto Condensed' , sans-serif; text-align: center; block: block;" id="decider"></h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script type="text/javascript" src="{% static 'assets/main.js' %}"></script>
   <script src=" https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

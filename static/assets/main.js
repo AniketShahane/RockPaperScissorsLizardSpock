@@ -4,6 +4,7 @@ options = document.querySelector('.options').children;
 var yourpoints = 0,
   shellypoints = 0;
 
+
 you = document.getElementById('yourpoints');
 sheldon = document.getElementById('shellypoints');
 
@@ -77,6 +78,10 @@ if (screen.width >= 1185) {
   });
 }
 
+setTimeout(function() {
+  $('#message').fadeOut('slow');
+}, 2000);
+
 var choice; // This variable stores the choice that the user has made
 // choice === 1: Rock
 // choice === 2: Paper
@@ -113,11 +118,12 @@ var winner = [
   [0, 1, 0, -1, 1],
   [1, 0, 1, 0, -1]
 ];
+console.log(document.querySelector('#decideWinner'));
 
 for (var option of options) {
   //the option is the hand that the user has chosen to play
   option.addEventListener('click', function clicked(e) {
-    console.log('Something was clicked');
+    console.log('Something happened');
     if (e.target.parentNode.className == "opt1") {
       console.log('Rock was clicked');
       choice = 1;
@@ -137,25 +143,29 @@ for (var option of options) {
     var shelly = Math.floor(Math.random() * 5) + 1;
     document.querySelector('#shelly').innerHTML = SheldonChooses[shelly];
 
+    console.log("Working till this point");
     if (winner[choice - 1][shelly - 1] === 1) {
       yourpoints += 1;
-      $('#decider').fadeIn(100);
-      decider.innerHTML = '<h3 style="color:white; font-family: \'Roboto Condensed\', sans-serif; text-align: center; block: block;"><em>You Win!!</em></h3>';
+      // $('#decider').fadeIn(100);
+      document.querySelector('#decideWinner').click();
+      decider.innerHTML = '<em>You Win!!</em>';
       you.innerHTML = `${yourpoints}`;
-      $('#decider').fadeOut(1000);
-      sync();
+      // $('#decider').fadeOut(1000);
+      // sync();
     } else if (winner[choice - 1][shelly - 1] === -1) {
-      $('#decider').fadeIn(100);
-      decider.innerHTML = '<h3 style = "color:white; font-family: \'Roboto Condensed\', sans-serif; text-align: center; block: block" ><em>Sorry Guys Its A Tie!!</em> </h3>';
-      $('#decider').fadeOut(1000);
-      sync();
+      // $('#decider').fadeIn(100);
+      document.querySelector('#decideWinner').click();
+      decider.innerHTML = '<em>Sorry Guys Its a Tie!!</em>';
+      // $('#decider').fadeOut(1000);
+      // sync();
     } else {
       shellypoints += 1;
-      $('#decider').fadeIn(100);
-      decider.innerHTML = '<h3 style = "color:white; font-family: \'Roboto Condensed\', sans-serif; text-align: center; block: block" ><em> Sheldon Wins!! </em></h3>';
+      // $('#decider').fadeIn(100);
+      document.querySelector('#decideWinner').click();
+      decider.innerHTML = '<em>Sheldon Wins!!</em>';
       sheldon.innerHTML = `${shellypoints}`;
-      $('#decider').fadeOut(1000);
-      sync();
+      // $('#decider').fadeOut(1000);
+      // sync();
     }
 
   });
