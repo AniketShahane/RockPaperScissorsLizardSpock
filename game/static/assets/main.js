@@ -130,6 +130,18 @@ var lizardPaper = 'Lizard Eats Paper';
 var spockRock = 'Spock Vaporises Rock';
 var spockScissors = 'Spock Smashes Scissors';
 
+document.getElementById('w0').innerHTML = rockScissors;
+document.getElementById('w1').innerHTML = rockLizard;
+document.getElementById('w2').innerHTML = paperRock;
+document.getElementById('w3').innerHTML = paperSpock;
+document.getElementById('w4').innerHTML = scissorsPaper;
+document.getElementById('w5').innerHTML = scissorsLizard;
+document.getElementById('w6').innerHTML = lizardPaper;
+document.getElementById('w7').innerHTML = lizardSpock;
+document.getElementById('w8').innerHTML = spockRock;
+document.getElementById('w9').innerHTML = spockScissors;
+
+
 
 var winnerText = [
   [tieString, paperRock, rockScissors, rockLizard, spockRock],
@@ -174,7 +186,7 @@ for (var option of options) {
       setTimeout(function() {
         $('#deciderModal').fadeOut('slow');
         $('#deciderModal').modal('hide');
-      }, 1350);
+      }, 1500);
       // $('#deciderModal').fadeOut(1200);
       // sync();
     } else if (winner[choice - 1][shelly - 1] === -1) {
@@ -185,7 +197,7 @@ for (var option of options) {
       setTimeout(function() {
         $('#deciderModal').fadeOut('slow');
         $('#deciderModal').modal('hide');
-      }, 1350);
+      }, 1500);
       // sync();
     } else {
       shellypoints += 1;
@@ -197,7 +209,7 @@ for (var option of options) {
       setTimeout(function() {
         $('#deciderModal').fadeOut('slow');
         $('#deciderModal').modal('hide');
-      }, 1350);
+      }, 1500);
       // sync();
     }
 
@@ -205,7 +217,9 @@ for (var option of options) {
 }
 
 function reset() {
-  document.querySelector('#shelly').innerHTML = '';
+  ScrollReveal({
+    reset: true
+  });
 }
 
 function sync() {

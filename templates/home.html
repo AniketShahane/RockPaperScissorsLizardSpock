@@ -2,6 +2,7 @@
 
 {% load static %}
 {% block title %}Game{% endblock %}
+{% block js %}<script src="https://unpkg.com/scrollreveal"></script>{% endblock %}
 {% block content %}
 <div class="jumbotron jumbotron-fluid text-center pt-2 pb-1 bg-light">
   <div class="container" id="main-jumbo">
@@ -72,6 +73,42 @@
 
   <!-- <div id="decider"></div> -->
 
+</div>
+<!-- Button trigger modal -->
+<button type="button" style="display:none;" class="btn btn-primary" id="wtf" data-toggle="modal" data-target="#exampleModalCenter">
+
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content bg-light">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle" style="color: #cc141d; font-family: 'Oswald', sans-serif; font-size: 1.8rem; ">This is a game popularised by Sheldon on the renowned show 'The Big Bang Theory'</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h3 class="modal-title" style="color:#cc141d; font-family: 'Roboto Condensed', sans-serif; text-align: center; block: block;"><strong>Outcomes Of The Game</strong></h3>
+        <h5 class="modal-title" id="w0" style="color:#cc141d; font-family: 'Roboto Condensed', sans-serif; text-align: center; block: block;"></h5>
+        <h5 class="modal-title" id="w1" style="color:#cc141d; font-family: 'Roboto Condensed', sans-serif; text-align: center; block: block;"></h5>
+        <h5 class="modal-title" id="w2" style="color:#cc141d; font-family: 'Roboto Condensed', sans-serif; text-align: center; block: block;"></h5>
+        <h5 class="modal-title" id="w3" style="color:#cc141d; font-family: 'Roboto Condensed', sans-serif; text-align: center; block: block;"></h5>
+        <h5 class="modal-title" id="w4" style="color:#cc141d; font-family: 'Roboto Condensed', sans-serif; text-align: center; block: block;"></h5>
+        <h5 class="modal-title" id="w5" style="color:#cc141d; font-family: 'Roboto Condensed', sans-serif; text-align: center; block: block;"></h5>
+        <h5 class="modal-title" id="w6" style="color:#cc141d; font-family: 'Roboto Condensed', sans-serif; text-align: center; block: block;"></h5>
+        <h5 class="modal-title" id="w7" style="color:#cc141d; font-family: 'Roboto Condensed', sans-serif; text-align: center; block: block;"></h5>
+        <h5 class="modal-title" id="w8" style="color:#cc141d; font-family: 'Roboto Condensed', sans-serif; text-align: center; block: block;"></h5>
+        <h5 class="modal-title" id="w9" style="color:#cc141d; font-family: 'Roboto Condensed', sans-serif; text-align: center; block: block;"></h5>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container text-right">
+  <a href="javascript:{document.getElementById('wtf').click()}" class="my-2 mx-auto searchbutton" style="color: white; font-size: 1.4rem; font-family: 'Roboto Condensed', sans-serif; border: 2px solid white; padding:0.4rem; display: inline-block">
+    <i class="fas fa-scroll"></i> What Is This?
+  </a>
 </div>
 
 {% endblock %}

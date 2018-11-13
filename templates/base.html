@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css?family=Oswald|Spicy+Rice" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Roboto+Condensed" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  {% block js %} {% endblock %}
   <script src="https://unpkg.com/scrollreveal"></script>
   <!-- <script>
     ScrollReveal({ reset: true });
@@ -186,7 +187,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-warning">
     <div class="container" id="main-nav">
-      <a href="{% url 'home' %}" onclick="sync()" class="navbar-brand" style="font-family:'Kaushan Script', sans-serif; color: white; font-size:1.5rem;"><img src="{% static 'tbbtlogo.png' %}" alt="logo of the flash" widht="45" height="45" class="mr-2">
+      <a href="{% url 'home' %}" onclick="reset()" class="navbar-brand" style="font-family:'Kaushan Script', sans-serif; color: white; font-size:1.5rem;"><img src="{% static 'tbbtlogo.png' %}" alt="logo of the flash" widht="45" height="45" class="mr-2">
         ~ The Big Bang Theory</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="font-size: 0.8rem;">
         <span class="navbar-toggler-icon"></span>
@@ -195,15 +196,15 @@
         <ul class="navbar-nav ml-auto white">
           {% if 'blogs' in request.path %}
           <li class="nav-item active white">
-            <a class="nav-link " href="javascript:{document.getElementById('blogform').click()}" onclick="sync()" style="color: #f4f4f4; font-size:1.5rem; font-family:'Oswald', sans-serif;">Add Your Own <i class="fas fa-plus-circle fa-1x"></i></a>
+            <a class="nav-link " href="javascript:{document.getElementById('blogform').click()}" onclick="reset()" style="color: #f4f4f4; font-size:1.5rem; font-family:'Oswald', sans-serif;">Add Your Own <i class="fas fa-plus-circle fa-1x"></i></a>
           </li>
           {% else %}
           <li class="nav-item active white">
-            <a class="nav-link " href="{% url 'blogs' %}" onclick="sync()" style="color: #f4f4f4; font-size:1.5rem; font-family:'Oswald', sans-serif;">Blog</a>
+            <a class="nav-link " href="{% url 'blogs' %}" onclick="reset()" style="color: #f4f4f4; font-size:1.5rem; font-family:'Oswald', sans-serif;">Blog</a>
           </li>
           {% endif %}
           <li class="nav-item">
-            <a class="nav-link white" href="{% url 'howtoplay' %}" onclick="sync()" style="color: #f4f4f4; font-size:1.5rem; font-family:'Oswald', sans-serif;">How It Works</a>
+            <a class="nav-link white" href="{% url 'howtoplay' %}" onclick="reset()" style="color: #f4f4f4; font-size:1.5rem; font-family:'Oswald', sans-serif;">How It Works</a>
           </li>
           <li class="nav-item">
             <a class="nav-link white" href="https://github.com/AniketShahane" target="_blank" style="color: #f4f4f4;"><i class="fab fa-github-square fa-2x"></i></a>
