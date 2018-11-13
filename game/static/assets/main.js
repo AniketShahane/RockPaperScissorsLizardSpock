@@ -89,7 +89,7 @@ var choice; // This variable stores the choice that the user has made
 // choice === 5: Spock
 var SheldonChooses = {
   1: `<span class="shell" style="display: flex; flex-direction:column;">
-      <i class="far fa-hand-rock fa-3x p-3" style="color:#ffc107; border: 2px solid white; border-radius:50%; max-width:80%; max-height: 80%"></i>
+      <i class="far fa-hand-rock fa-3x p-3" style="color:#ffc107; border: 2px solid white; border-radius:50%;"></i>
       <small style="color: white; font-family: 'Oswald', sans-serif; font-size: 1rem;">Rock</small>
     </span>`,
   2: `<span class="shell" style="display: flex; flex-direction:column;">

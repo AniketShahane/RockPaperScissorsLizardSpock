@@ -34,7 +34,7 @@
 </div>
 
 
-
+{% if blogs %}
 {% for blog in blogs %}
 <div class="container mb-1">
   <div class="list-group">
@@ -49,6 +49,14 @@
   </div>
 </div>
 {% endfor %}
+{% else %}
+<div class="container text-center">
+  <h4 href="{% url 'search' %}" class="my-4 mx-auto" style="color: white; font-size: 2rem; font-family: 'Roboto Condensed', sans-serif; display: inline-block">
+    <i class="far fa-times-circle"></i> No Blogs To Show <i class="far fa-times-circle"></i>
+  </h4>
+</div>
+
+{% endif %}
 </div>
 
 
